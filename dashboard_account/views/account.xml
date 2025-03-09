@@ -1,0 +1,73 @@
+<odoo>
+    <record id="action_unpaid_invoices_graph" model="ir.actions.act_window">
+        <field name="name">Unpaid invoices Graph</field>
+        <field name="res_model">account.invoice.report</field>
+        <field name="view_mode">graph</field>
+        <field name="domain">["&amp;", ["journal_id", "=", 1], "&amp;", ("state", "=", "posted"), ("payment_state", "in", ("not_paid", "partial"))]</field>
+        <field name="context">{'group_by': ['invoice_date:month']}</field>
+    </record>
+    <record id="action_unpaid_bills_graph" model="ir.actions.act_window">
+        <field name="name">Unpaid bills Graph</field>
+        <field name="res_model">account.invoice.report</field>
+        <field name="view_mode">graph</field>
+        <field name="domain">['&amp;', ['move_type', 'in', ['in_invoice', 'in_refund', 'in_receipt', 'entry']], '&amp;', ['move_type', 'in', ['in_invoice', 'in_refund', 'in_receipt', 'entry']], '&amp;', ['journal_id', '=', 2], '&amp;', ['state', '=', 'posted'], ['payment_state', 'in', ['not_paid', 'partial']]]</field>
+        <field name="context">{'group_by': ['invoice_date_due:month']}</field>
+    </record>
+
+    <record id="action_unpaid_invoices_pivot" model="ir.actions.act_window">
+        <field name="name">Unpaid invoices Pivot</field>
+        <field name="res_model">account.invoice.report</field>
+        <field name="view_mode">pivot</field>
+        <field name="domain">["&amp;", ["journal_id", "=", 1], "&amp;", ("state", "=", "posted"), ("payment_state", "in", ("not_paid", "partial"))]</field>
+        <field name="context">{
+            'pivot_row_groupby': ['invoice_date_due:month', 'partner_id'],
+            'pivot_col_groupby': ['price_subtotal'],
+        }</field>
+    </record>
+    <record id="action_unpaid_invoices_tree" model="ir.actions.act_window">
+        <field name="name">Unpaid invoices Tree</field>
+        <field name="res_model">account.invoice.report</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">["&amp;", ["journal_id", "=", 1], "&amp;", ("state", "=", "posted"), ("payment_state", "in", ("not_paid", "partial"))]</field>
+        <field name="context">{'group_by': ['invoice_date_due:month', 'partner_id', 'move_id']}</field>
+    </record>
+    <record id="action_unpaid_bills_tree" model="ir.actions.act_window">
+        <field name="name">Unpaid bills Tree</field>
+        <field name="res_model">account.invoice.report</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">['&amp;', ['move_type', 'in', ['in_invoice', 'in_refund', 'in_receipt', 'entry']], '&amp;', ['move_type', 'in', ['in_invoice', 'in_refund', 'in_receipt', 'entry']], '&amp;', ['journal_id', '=', 2], '&amp;', ['state', '=', 'posted'], ['payment_state', 'in', ['not_paid', 'partial']]]</field>
+        <field name="context">{'group_by': ['invoice_date_due:month', 'partner_id', 'move_id']}</field>
+    </record>
+
+    <record id="action_invoices_by_month_graph" model="ir.actions.act_window">
+        <field name="name">Invoices by month Graph</field>
+        <field name="res_model">account.invoice.report</field>
+        <field name="view_mode">graph</field>
+        <field name="domain">["&amp;", ["journal_id", "=", 1],("state", "=", "posted")]</field>
+        <field name="context">{'group_by': ['invoice_date:month']}</field>
+    </record>
+
+    <record id="account_invoice_report_view_tree_inherit" model="ir.ui.view">
+        <field name="name">account.invoice.report.tree.inherit</field>
+        <field name="model">account.invoice.report</field>
+        <field name="inherit_id" ref="account.account_invoice_report_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">price_subtotal desc</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_top_invoices_by_month_tree" model="ir.actions.act_window">
+        <field name="name">Top Invoices by month Tree</field>
+        <field name="res_model">account.invoice.report</field>
+        <field name="view_mode">tree</field>
+        <field name="limit">5</field>
+        <field name="domain">["&amp;", ["journal_id", "=", 1],("state", "=", "posted")]</field>
+        <field name="context">{'group_by': ['invoice_date:month', 'move_id']}</field>
+        <field name="view_id" ref="account_invoice_report_view_tree_inherit"/>
+    </record>
+
+</odoo>
+
+    

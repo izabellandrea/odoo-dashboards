@@ -1,0 +1,40 @@
+<odoo>
+  <record model="ir.ui.view" id="project_dashboard_view">
+    <field name="name">Project Dashboard</field>
+    <field name="model">board.board</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <form string="Project Dashboard">
+            <board style="1-1">
+                <column>
+                  <action name="%(dashboard_project.action_task_pipe_pivot)d" string="Task Pipe"/>
+                </column>
+                <column>
+                  <action name="%(dashboard_project.action_task_pipe_graph)d" string="Task Pipe"/>
+                </column>
+            </board>
+            <board style="1">
+                <column>
+                  <action name="%(dashboard_project.action_project_task_pivot)d" string="Projects and Tasks"/>
+                </column>
+            </board>
+        </form>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="open_project_dashboard_action">
+      <field name="name">Project Dashboard</field>
+      <field name="res_model">board.board</field>
+      <field name="view_mode">form</field>
+      <field name="usage">menu</field>
+      <field name="view_id" ref="project_dashboard_view"/>
+  </record>
+
+  <menuitem
+    name="Project"
+    parent="base.menu_board_root"
+    action="open_project_dashboard_action"
+    sequence="8"
+    id="project_dashboard_menu"
+  />
+</odoo>

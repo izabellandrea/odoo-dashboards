@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dashboard_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20230912\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-27 10:05+0000\n"
+"PO-Revision-Date: 2024-03-27 12:08+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n%100<=19) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. module: dashboard_project
+#: model:ir.ui.menu,name:dashboard_project.project_dashboard_menu
+msgid "Project"
+msgstr "Proiecte"
+
+#. module: dashboard_project
+#: model:ir.actions.act_window,name:dashboard_project.open_project_dashboard_action
+#: model_terms:ir.ui.view,arch_db:dashboard_project.project_dashboard_view
+msgid "Project Dashboard"
+msgstr "Tabloul de bord ale proiectelor"
+
+#. module: dashboard_project
+#: model:ir.actions.act_window,name:dashboard_project.action_project_task_pivot
+#: model_terms:ir.ui.view,arch_db:dashboard_project.project_dashboard_view
+msgid "Projects and Tasks"
+msgstr "Proiecte și sarcini"
+
+#. module: dashboard_project
+#: model_terms:ir.ui.view,arch_db:dashboard_project.project_dashboard_view
+msgid "Task Pipe"
+msgstr ""
+
+#. module: dashboard_project
+#: model:ir.actions.act_window,name:dashboard_project.action_task_pipe_graph
+msgid "Task Pipe Graph"
+msgstr ""
+
+#. module: dashboard_project
+#: model:ir.actions.act_window,name:dashboard_project.action_task_pipe_pivot
+msgid "Task Pipe Pivot"
+msgstr ""

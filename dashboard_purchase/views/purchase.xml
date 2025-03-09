@@ -1,0 +1,77 @@
+<odoo>
+<!-- Product Suppliers-->
+
+    <record id="action_monthly_purchase_order_graph" model="ir.actions.act_window">
+        <field name="name">Monthly Purchases Graph</field>
+        <field name="res_model">purchase.report</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{
+            'group_by': ['date_order:month']
+            }
+         </field>
+        <field name="view_id" ref="purchase.view_purchase_order_graph"/>
+    </record>
+
+    <record id="action_monthly_purchase_order_pivot" model="ir.actions.act_window">
+        <field name="name">Monthly Purchases Pivot</field>
+        <field name="res_model">purchase.report</field>
+        <field name="view_mode">pivot</field>
+         <field name="context">{
+            'pivot_column_groupby': ['date_order:month'],
+            'pivot_measures': ['order_id', 'untaxed_total', 'price_total']
+            }
+         </field>
+        <field name="view_id" ref="purchase.view_purchase_order_pivot"/>
+    </record>
+    <record id="action_monthly_purchase_order_products_pivot" model="ir.actions.act_window">
+        <field name="name">Monthly Purchases Products Pivot</field>
+        <field name="res_model">purchase.report</field>
+        <field name="view_mode">pivot</field>
+         <field name="context">{
+            'pivot_column_groupby': ['date_order:month'],
+            'pivot_measures':['qty_ordered']
+            }
+         </field>
+        <field name="view_id" ref="purchase.view_purchase_order_pivot"/>
+    </record>
+
+    <record id="purchase_report_view_tree_inherit" model="ir.ui.view">
+        <field name="name">purchase.report.view.tree.inherit</field>
+        <field name="model">purchase.report</field>
+        <field name="inherit_id" ref="purchase.purchase_report_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">untaxed_total desc</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_top_purchase_tree" model="ir.actions.act_window">
+        <field name="name">Top purchase orders Tree</field>
+        <field name="res_model">purchase.report</field>
+        <field name="view_mode">tree</field>
+        <field name="limit">5</field>
+        <field name="domain">['&amp;',
+        ('date_order', '&lt;', (context_today() + relativedelta(years=1, month=1, day=1)).strftime('%Y-%m-%d')), ('date_order', '&gt;=', (context_today() + relativedelta(month=1, day=1)).strftime('%Y-%m-%d')), 
+        ('order_id','!='',False)]
+        </field>
+        <field name="context">{'group_by':['date_order:month','order_id']}</field>
+        <field name="view_id" ref="purchase_report_view_tree_inherit"/>
+    </record>
+
+    <record id="action_top_vendors_tree" model="ir.actions.act_window">
+        <field name="name">Top vendors Tree</field>
+        <field name="res_model">purchase.report</field>
+        <field name="view_mode">tree</field>
+        <field name="limit">5</field>
+        <field name="domain">['&amp;',
+            ('date_order', '&lt;', (context_today() + relativedelta(years=1, month=1, day=1)).strftime('%Y-%m-%d')), ('date_order', '&gt;=', (context_today() + relativedelta(month=1, day=1)).strftime('%Y-%m-%d')), 
+            ('partner_id','!='',False)]
+        </field>
+        <field name="context">{'group_by':['date_order:month','partner_id']}</field>
+        <field name="view_id" ref="purchase_report_view_tree_inherit"/>
+    </record>
+
+</odoo>
+
+    

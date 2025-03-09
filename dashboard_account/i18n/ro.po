@@ -1,0 +1,84 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dashboard_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20230912\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-27 10:04+0000\n"
+"PO-Revision-Date: 2024-03-27 12:07+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n%100<=19) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. module: dashboard_account
+#: model:ir.ui.menu,name:dashboard_account.account_dashboard_menu
+#: model_terms:ir.ui.view,arch_db:dashboard_account.account_dashboard_view
+msgid "Accounting"
+msgstr "Contabilitate"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.open_account_dashboard_action
+msgid "Accounting Dashboard"
+msgstr "Tablou de bord contabil"
+
+#. module: dashboard_account
+#: model_terms:ir.ui.view,arch_db:dashboard_account.account_dashboard_view
+msgid "Invoices by month"
+msgstr "Facturi pe luni"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.action_invoices_by_month_graph
+msgid "Invoices by month Graph"
+msgstr "Facturi pe lună Grafic"
+
+#. module: dashboard_account
+#: model_terms:ir.ui.view,arch_db:dashboard_account.account_dashboard_view
+msgid "Top Invoices by month"
+msgstr "Top facturi pe luni"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.action_top_invoices_by_month_tree
+msgid "Top Invoices by month Tree"
+msgstr "Top facturi după luni tree"
+
+#. module: dashboard_account
+#: model_terms:ir.ui.view,arch_db:dashboard_account.account_dashboard_view
+msgid "Unpaid Bills"
+msgstr "Facturi furnizor neplătite"
+
+#. module: dashboard_account
+#: model_terms:ir.ui.view,arch_db:dashboard_account.account_dashboard_view
+msgid "Unpaid Invoices"
+msgstr "Facturi client neplătite"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.action_unpaid_bills_graph
+msgid "Unpaid bills Graph"
+msgstr "Facturi furnizor neplătite Grafic"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.action_unpaid_bills_tree
+msgid "Unpaid bills Tree"
+msgstr "Facturi furnizor neplătite Tree"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.action_unpaid_invoices_graph
+msgid "Unpaid invoices Graph"
+msgstr "Facturi client neplătite Grafic"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.action_unpaid_invoices_pivot
+msgid "Unpaid invoices Pivot"
+msgstr "Facturi client neplătite Pivot"
+
+#. module: dashboard_account
+#: model:ir.actions.act_window,name:dashboard_account.action_unpaid_invoices_tree
+msgid "Unpaid invoices Tree"
+msgstr "Facturi client neplătite Tree"

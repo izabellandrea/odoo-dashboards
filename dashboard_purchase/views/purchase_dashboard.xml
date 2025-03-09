@@ -1,0 +1,43 @@
+<odoo>
+  <record model="ir.ui.view" id="purchase_dashboard_view">
+    <field name="name">Purchase Dashboard</field>
+    <field name="model">board.board</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <form string="Purchase Dashboard">
+            <board style="1">
+                <column>
+                  <action name="%(dashboard_purchase.action_monthly_purchase_order_graph)d" string="Monthly Purchase"/>
+                  <action name="%(dashboard_purchase.action_monthly_purchase_order_pivot)d" string="Total Monthly Purchase"/>
+                  <action name="%(dashboard_purchase.action_monthly_purchase_order_products_pivot)d" string="Products Monthly Purchase"/>
+                </column>
+            </board>
+            <board style="1-1">
+                <column>
+                  <action name="%(dashboard_purchase.action_top_purchase_tree)d" string="Top Orders"/>
+                </column>
+                <column>
+                  <action name="%(dashboard_purchase.action_top_vendors_tree)d" string="Top Vendors"/>
+                </column>
+            </board>
+        </form>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="open_purchase_dashboard_action">
+      <field name="name">Purchase Dashboard</field>
+      <field name="res_model">board.board</field>
+      <field name="view_mode">form</field>
+      <field name="usage">menu</field>
+      <field name="view_id" ref="purchase_dashboard_view"/>
+  </record>
+
+  <menuitem
+    name="Purchase"
+    parent="base.menu_board_root"
+    action="open_purchase_dashboard_action"
+    sequence="9"
+    id="purchasedashboard_menu"
+  />
+  
+</odoo>

@@ -1,0 +1,33 @@
+<odoo>
+    <record id="action_task_pipe_graph" model="ir.actions.act_window">
+        <field name="name">Task Pipe Graph</field>
+        <field name="res_model">report.project.task.user</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{'group_by': ['project_id'], 'col_group_by': ['stage_id'], 'measures': ['nbr']}</field>
+        <field name="view_id" ref="project.view_task_project_user_graph"/>
+    </record>
+
+    <record id="action_task_pipe_pivot" model="ir.actions.act_window">
+        <field name="name">Task Pipe Pivot</field>
+        <field name="res_model">report.project.task.user</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{
+            'pivot_row_groupby': ['project_id'], 
+            'pivot_col_groupby': ['stage_id'], 
+            'pivot_measures': ['nbr']}</field>
+        <field name="view_id" ref="project.view_task_project_user_pivot"/>
+    </record>
+
+
+    <record id="action_project_task_pivot" model="ir.actions.act_window">
+        <field name="name">Projects and Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{
+            'pivot_row_groupby': ['project_id'], 
+            'pivot_col_groupby': ['stage_id'],
+            'pivot_measures': ['planned_hours']
+            }</field>
+        <field name="view_id" ref="project.view_project_task_pivot"/>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<odoo>
+    <record id="action_crm_opportunity_graph" model="ir.actions.act_window">
+        <field name="name">Leads Graph</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{
+            'group_by': ['create_date:month','team_id']
+        }</field>
+        <field name="view_id" ref="crm.crm_opportunity_report_view_graph_lead"/>
+    </record>
+
+    <record id="action_crm_opportunity_pivot" model="ir.actions.act_window">
+        <field name="name">Leads Pivot</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{
+            'pivot_column_groupby': ['create_date:month'],
+            'pivot_row_groupby': ['team_id']
+        }</field>
+        <field name="view_id" ref="crm.crm_opportunity_report_view_pivot_lead"/>
+    </record>
+</odoo>
+
+    
